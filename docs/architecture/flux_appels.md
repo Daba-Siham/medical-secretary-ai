@@ -28,6 +28,18 @@ Dans la première version, le Module 3 sera simulé à l’aide d’un mock.
 
 ## 3. Flux principal
 
+### 3.1 Diagramme du flux de qualification
+
+Le diagramme suivant présente le parcours complet d’une demande, depuis sa
+réception depuis le Module 3 jusqu’à la réponse automatique, au routage vers
+un service ou au transfert vers une secrétaire.
+
+![Flux de qualification des appels](diagrams/exports/flux_qualification.png)
+
+*Figure — Flux de qualification d’une demande dans le Module 4.*
+
+### 3.2 Description textuelle du flux
+
 ```text
 Appel du patient
         ↓
@@ -46,12 +58,6 @@ Détection de l’urgence
 Urgence ?
 ├── Oui → transfert immédiat
 └── Non → vérification du score de confiance
-                  ↓
-         Score suffisant ?
-         ├── Non → transfert vers une secrétaire
-         └── Oui → détermination de l’action
-                          ↓
-              Routage selon la catégorie
 ```
 
 ## 4. Routage selon la catégorie

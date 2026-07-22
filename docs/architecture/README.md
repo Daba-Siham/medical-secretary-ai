@@ -18,6 +18,7 @@ dans la FAQ lorsque cela est pertinent.
 - `diagrams/sequence_classification.drawio` : séquence de traitement d’une demande.
 - `diagrams/exports/` : versions PNG ou SVG des diagrammes.
 - `api_rest.md` : documentation des endpoints REST, des formats d’entrée/sortie et des erreurs.
+- `sequence_classification.md` : description des échanges entre les composants pendant la qualification d’une demande.
 
 ## Organisation des diagrammes
 
