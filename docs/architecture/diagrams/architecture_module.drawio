@@ -1,0 +1,134 @@
+<mxfile host="65bd71144e">
+    <diagram id="module4-architecture" name="Architecture Module 4">
+        <mxGraphModel dx="1079" dy="631" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="module3" value="&lt;b&gt;Module 3 — Système téléphonique&lt;/b&gt;&lt;br&gt;Appel, transcription et exécution du transfert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="260" width="250" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="module1" value="&lt;b&gt;Module 1 — Backend Core &amp; API&lt;/b&gt;&lt;br&gt;Authentification, rôles, permissions et base centrale" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="790" width="320" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="coredb" value="&lt;b&gt;Base de données centrale&lt;/b&gt;&lt;br&gt;Bibliothèque FAQ paramétrable" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="1290" y="320" width="240" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="mocks" value="&lt;b&gt;Mocks de développement&lt;/b&gt;&lt;br&gt;Mock Module 3 • Mock Module 1 • Mock transfert" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 4;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="820" width="360" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="module4" value="&lt;b&gt;Module 4 — Qualification des appels et FAQ&lt;/b&gt;" style="swimlane;html=1;rounded=1;startSize=38;horizontal=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="40" width="860" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="api" value="&lt;b&gt;API REST du Module 4&lt;/b&gt;&lt;br&gt;POST /api/v1/qualifications&lt;br&gt;POST /api/v1/faq/search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="35" y="70" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="validation" value="&lt;b&gt;Validation Service&lt;/b&gt;&lt;br&gt;Vérification de CallEntry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="320" y="70" width="210" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="preprocess" value="&lt;b&gt;Text Preprocessing Service&lt;/b&gt;&lt;br&gt;Nettoyage et normalisation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="585" y="70" width="230" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="classifier" value="&lt;b&gt;Classification Service&lt;/b&gt;&lt;br&gt;scikit-learn ou LLM&lt;br&gt;Catégorie + score de confiance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="310" y="200" width="240" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="emergencyDecision" value="&lt;b&gt;Urgence détectée ?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="630" y="205" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="emergency" value="&lt;b&gt;Emergency Handler&lt;/b&gt;&lt;br&gt;Priorité absolue&lt;br&gt;TRANSFER_IMMEDIATELY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="585" y="350" width="230" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="routing" value="&lt;b&gt;Routing Service&lt;/b&gt;&lt;br&gt;Détermine l’action selon la catégorie" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="250" y="350" width="250" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="faqDecision" value="&lt;b&gt;FAQ applicable ?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="310" y="485" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="faq" value="&lt;b&gt;FAQ Service&lt;/b&gt;&lt;br&gt;Recherche dans les FAQ actives&lt;br&gt;Réponse + score de similarité" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="545" y="480" width="270" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="response" value="&lt;b&gt;Response Builder&lt;/b&gt;&lt;br&gt;ClassificationResult + FAQResponse éventuelle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;align=center;verticalAlign=middle;" parent="module4" vertex="1">
+                    <mxGeometry x="305" y="610" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="Requête validée" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="module4" source="api" target="validation" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" value="Texte valide" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="module4" source="validation" target="preprocess" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" value="Texte normalisé" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="preprocess" target="classifier" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="700" y="170"/>
+                            <mxPoint x="430" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" value="Catégorie + scores" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="module4" source="classifier" target="emergencyDecision" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" value="Oui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;strokeColor=#b85450;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="emergencyDecision" target="emergency" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" value="Non" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;strokeColor=#82b366;exitX=0.15;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="emergencyDecision" target="routing" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="652" y="320"/>
+                            <mxPoint x="375" y="320"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e8" value="Action prioritaire" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#b85450;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.52;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="emergency" target="response" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="631" y="460"/>
+                            <mxPoint x="460" y="460"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e9" value="Catégorie et action" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="routing" target="faqDecision" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e10" value="Oui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;strokeColor=#82b366;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="module4" source="faqDecision" target="faq" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" value="Non : action de routage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="faqDecision" target="response" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" value="FAQResponse" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;" parent="module4" source="faq" target="response" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="CallEntry JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="module3" target="api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e13" value="Résultat : catégorie, confiance, action et réponse éventuelle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;" parent="1" source="response" target="module3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="330" y="690"/>
+                            <mxPoint x="330" y="390"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e14" value="Authentification, rôles et contexte" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=block;startFill=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#6c8ebf;" parent="1" source="api" target="module1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="465" y="760"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e15" value="Lecture des FAQ actives" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=block;startFill=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#82b366;" parent="1" source="faq" target="coredb" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e16" value="Stockage dans la base core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=block;startFill=1;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#82b366;" parent="1" source="module1" target="coredb" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1410" y="835"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e17" value="Simulation avant intégration réelle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#d6b656;" parent="1" source="mocks" target="api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
