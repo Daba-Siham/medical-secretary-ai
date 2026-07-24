@@ -4,164 +4,113 @@ from app.database.session import SessionLocal
 from app.models.faq import FAQ
 
 
+# Données d'exemple destinées au développement.
+# Elles seront remplacées par les informations officielles de l'établissement.
+
 INITIAL_FAQS = [
     {
         "question": "Quels sont les horaires d’ouverture du cabinet ?",
         "answer": (
-            "Les horaires d’ouverture doivent être configurés "
-            "par l’établissement."
+            "Le cabinet est ouvert du lundi au vendredi de 08h30 à 18h30 "
+            "et le samedi de 09h00 à 13h00. Le cabinet est fermé le dimanche "
+            "et les jours fériés."
         ),
         "category": "informations",
-        "tags": [
-            "horaires",
-            "ouverture",
-            "fermeture",
-            "cabinet",
-        ],
+        "tags": ["horaires", "ouverture", "fermeture", "cabinet"],
     },
     {
         "question": "Quelle est l’adresse du cabinet ?",
         "answer": (
-            "L’adresse du cabinet doit être renseignée "
-            "par l’établissement."
+            "Le cabinet est situé au 25 Avenue Mohammed V, Tanger 90000. "
+            "Vous pouvez également consulter notre localisation sur Google Maps."
         ),
         "category": "informations",
-        "tags": [
-            "adresse",
-            "localisation",
-            "itinéraire",
-            "cabinet",
-        ],
+        "tags": ["adresse", "localisation", "itinéraire", "cabinet"],
     },
     {
         "question": "Un parking est-il disponible ?",
         "answer": (
-            "Les informations concernant le stationnement "
-            "doivent être configurées par l’établissement."
+            "Oui, un parking gratuit est disponible pour les patients devant "
+            "le cabinet, avec plusieurs places réservées."
         ),
         "category": "informations",
-        "tags": [
-            "parking",
-            "stationnement",
-            "voiture",
-            "accès",
-        ],
+        "tags": ["parking", "stationnement", "voiture", "accès"],
     },
     {
         "question": "Quelles spécialités médicales sont proposées ?",
         "answer": (
-            "La liste des spécialités doit être configurée "
-            "par l’établissement."
+            "Le cabinet propose des consultations en médecine générale, "
+            "cardiologie, dermatologie, pédiatrie et gynécologie."
         ),
         "category": "informations",
-        "tags": [
-            "spécialités",
-            "médecins",
-            "consultations",
-            "services",
-        ],
+        "tags": ["spécialités", "médecins", "consultations", "services"],
     },
     {
         "question": "Comment préparer ma consultation ?",
         "answer": (
-            "Les consignes de préparation dépendent du type "
-            "de consultation. La demande doit être transmise "
-            "au service concerné lorsque les consignes ne sont "
-            "pas disponibles dans une FAQ validée."
+            "Veuillez apporter votre pièce d’identité, votre carte d’assurance "
+            "maladie, vos ordonnances en cours ainsi que les résultats de vos "
+            "examens récents si vous en disposez."
         ),
         "category": "informations",
-        "tags": [
-            "préparation",
-            "consultation",
-            "documents",
-            "consignes",
-        ],
+        "tags": ["préparation", "consultation", "documents", "consignes"],
     },
     {
         "question": "Quels sont les tarifs des consultations ?",
         "answer": (
-            "Les tarifs doivent être configurés et validés "
-            "par l’établissement."
+            "Les consultations de médecine générale débutent à partir de 250 MAD. "
+            "Les consultations spécialisées sont comprises entre 350 MAD et 600 MAD "
+            "selon la spécialité."
         ),
         "category": "devis",
-        "tags": [
-            "tarif",
-            "prix",
-            "consultation",
-            "devis",
-        ],
+        "tags": ["tarif", "prix", "consultation", "devis"],
     },
     {
         "question": "Quels moyens de paiement sont acceptés ?",
         "answer": (
-            "Les moyens de paiement acceptés doivent être "
-            "renseignés par l’établissement."
+            "Le cabinet accepte les paiements en espèces, par carte bancaire "
+            "et par virement bancaire."
         ),
         "category": "informations",
-        "tags": [
-            "paiement",
-            "carte",
-            "espèces",
-            "chèque",
-        ],
+        "tags": ["paiement", "carte", "espèces", "virement"],
     },
     {
         "question": "Comment récupérer mes résultats d’examens ?",
         "answer": (
-            "Les modalités de récupération des résultats "
-            "doivent être définies par l’établissement. "
-            "Le Module 4 ne doit pas interpréter les résultats."
+            "Les résultats peuvent être retirés directement à l’accueil du cabinet "
+            "ou consultés via votre espace patient lorsqu’ils sont disponibles."
         ),
         "category": "laboratoire",
-        "tags": [
-            "résultats",
-            "examens",
-            "laboratoire",
-            "analyse",
-        ],
+        "tags": ["résultats", "examens", "laboratoire", "analyse"],
     },
     {
         "question": "Le cabinet propose-t-il la téléconsultation ?",
         "answer": (
-            "La disponibilité et les modalités de téléconsultation "
-            "doivent être configurées par l’établissement."
+            "Oui, des téléconsultations sont proposées sur rendez-vous pour "
+            "certaines spécialités médicales."
         ),
         "category": "informations",
-        "tags": [
-            "téléconsultation",
-            "consultation",
-            "distance",
-            "vidéo",
-        ],
+        "tags": ["téléconsultation", "consultation", "distance", "vidéo"],
     },
     {
         "question": "Comment obtenir un document administratif ?",
         "answer": (
-            "La demande de document doit être transmise "
-            "au service administratif compétent."
+            "Les certificats médicaux, attestations et autres documents "
+            "administratifs peuvent être demandés auprès du secrétariat "
+            "ou via votre espace patient."
         ),
         "category": "administratif",
-        "tags": [
-            "document",
-            "administratif",
-            "attestation",
-            "dossier",
-        ],
+        "tags": ["document", "administratif", "attestation", "certificat"],
     },
     {
         "question": "Comment contacter la pharmacie ?",
         "answer": (
-            "Les coordonnées et les modalités de contact "
-            "de la pharmacie doivent être configurées "
-            "par l’établissement."
+            "Pour toute question concernant vos médicaments ou votre ordonnance, "
+            "vous pouvez contacter la pharmacie au 05 39 00 00 00 pendant les "
+            "heures d’ouverture."
         ),
         "category": "pharmacie",
-        "tags": [
-            "pharmacie",
-            "contact",
-            "médicament",
-            "coordonnées",
-        ],
+        "tags": ["pharmacie", "contact", "médicament", "ordonnance"],
     },
 ]
 
