@@ -1,4 +1,4 @@
-from src.schemas import CallEntry, CallCategory, QualificationAction
+from src.app.schemas import CallEntry, CallCategory, QualificationAction
 
 
 def test_call_entry_creation():
