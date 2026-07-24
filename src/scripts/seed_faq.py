@@ -9,6 +9,24 @@ from app.models.faq import FAQ
 
 INITIAL_FAQS = [
     {
+        "question": "Bonjour",
+        "answer": "Bonjour, bienvenue au cabinet médical. Comment puis-je vous aider ?",
+        "category": "salutation",
+        "tags": ["bonjour", "salut", "bonsoir"],
+    },
+    {
+        "question": "Merci",
+        "answer": "Je vous en prie. N'hésitez pas si vous avez d'autres questions.",
+        "category": "salutation",
+        "tags": ["merci"],
+    },
+    {
+        "question": "Au revoir",
+        "answer": "Au revoir et bonne journée.",
+        "category": "salutation",
+        "tags": ["au revoir", "à bientôt"],
+    },
+    {
         "question": "Quels sont les horaires d’ouverture du cabinet ?",
         "answer": (
             "Le cabinet est ouvert du lundi au vendredi de 08h30 à 18h30 "
@@ -112,6 +130,70 @@ INITIAL_FAQS = [
         "category": "pharmacie",
         "tags": ["pharmacie", "contact", "médicament", "ordonnance"],
     },
+    {
+        "question": "Comment prendre un rendez-vous ?",
+        "answer": (
+            "Vous pouvez prendre rendez-vous par téléphone, "
+            "sur le site internet ou directement à l'accueil."
+        ),
+        "category": "rendez-vous",
+        "tags": ["rendez-vous", "réservation", "consultation"],
+    },
+    {
+        "question": "Comment modifier mon rendez-vous ?",
+        "answer": (
+            "Vous pouvez modifier votre rendez-vous en contactant "
+            "le secrétariat au moins 24 heures à l'avance."
+        ),
+        "category": "rendez-vous",
+        "tags": ["modifier", "rendez-vous"],
+    },
+    {
+        "question": "Comment annuler mon rendez-vous ?",
+        "answer": (
+            "Vous pouvez annuler votre rendez-vous par téléphone "
+            "ou depuis votre espace patient."
+        ),
+        "category": "rendez-vous",
+        "tags": ["annuler", "rendez-vous"],
+    },
+    {
+        "question": "Quels documents dois-je apporter ?",
+        "answer": (
+            "Veuillez apporter votre carte d'identité, votre carte "
+            "d'assurance maladie et vos examens récents."
+        ),
+        "category": "informations",
+        "tags": ["documents", "consultation"],
+    },
+    {
+        "question": "Le cabinet accepte-t-il de nouveaux patients ?",
+        "answer": (
+            "Oui, le cabinet accepte actuellement de nouveaux patients "
+            "sur rendez-vous."
+        ),
+        "category": "informations",
+        "tags": ["nouveaux patients"],
+    },
+    {
+        "question": "Combien de temps dure une consultation ?",
+        "answer": (
+            "Une consultation dure en moyenne entre 20 et 30 minutes, "
+            "selon le motif de consultation."
+        ),
+        "category": "informations",
+        "tags": ["consultation", "durée"],
+    },
+    {
+        "question": "Puis-je venir sans rendez-vous ?",
+        "answer": (
+            "Les consultations se font principalement sur rendez-vous. "
+            "En cas d'urgence, veuillez contacter le secrétariat."
+        ),
+        "category": "rendez-vous",
+        "tags": ["sans rendez-vous", "urgence"],
+    },
+
 ]
 
 
